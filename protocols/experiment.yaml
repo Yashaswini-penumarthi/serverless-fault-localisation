@@ -1,0 +1,78 @@
+# Experiment design. Fixed before calibration;
+# any later change is a dated amendment in notes/PROTOCOL_SPEC.md.
+stack_name: faultlab
+services: [orders_api, inventory, payments, notifications]
+entry_service: orders_api
+fault_targets: [inventory, payments, notifications]
+
+fault_types: [timeout, dependency_failure, throttling, elevated_latency]
+
+injection:
+  duration_s: 60                # each fault is on for 60 s ...
+  recovery_s: 300               # ... then 5 minutes without a fault
+  per_type_per_load: 60         # 60 x 4 types x 2 load levels = 480 injections
+  seed: 24262404
+  timeout_hold_ms: 1500         # target holds the call past the caller's client deadline
+  client_timeout_ms: 1000
+  latency_ms: [300, 800]        # elevated latency drawn from this range
+  throttle_reserved_concurrency: 0   # 0 = every call to the target is throttled; needs no spare account concurrency
+
+load:
+  steady_rps: 2
+  peak_multiplier: 5
+
+calibration:
+  hours: 24                     # fault-free, steady load; thresholds frozen afterwards
+control:
+  minutes: 60                   # fault-free period before each campaign = false-positive floor
+
+detector:
+  period_s: 60                  # CloudWatch standard resolution
+  series: [ErrorRate, Duration, ThrottleRate]   # Errors / Invocations, Average duration, Throttles / (Invocations + Throttles)
+  rules:
+    window_min: 30              # rolling baseline over the preceding 30 minutes
+    sigma: 3.0
+    percentile: 99              # fixed threshold = p99 of the calibration period
+    min_baseline_points: 10     # fewer non-firing points in the window -> calibration mean / sd
+    min_std:                    # floor for the sd so a flat series does not fire on noise
+      ErrorRate: 0.005
+      ThrottleRate: 0.005
+      Duration: 5.0             # ms
+  match_tolerance_s: 120        # a detection counts for an injection until 2 min after it ends
+
+localisation:
+  k: [1, 3]
+  depth_weight: 0.5             # score = share of failed traces implicating the service + 0.5 x normalised depth
+
+tracing:                         # stated with every overhead figure (Mertz and Nunes 2023; Huang et al. 2024)
+  full:    {mode: Active, reservoir_per_s: 1000, fixed_rate: 1.0, log_level: INFO}
+  policy:  {mode: Active, reservoir_per_s: 1,    fixed_rate: 0.05, log_level: ERROR}
+  "off":   {mode: PassThrough, log_level: ERROR}    # quoted: YAML 1.1 would read a bare off as false
+overhead:
+  minutes_per_condition: 30
+
+rcaeval:                         # leg 2: the same rules on the benchmark's telemetry (scaled windows)
+  dataset: RE2-OB                # 90 cases with metrics + logs + traces, the closest to an X-Ray rig
+  side_s: 600                    # RCAEval main.py (length 20 min): 600 s before / 600 s after the injection
+  bucket_s: 10                   # 1 s samples averaged into 10 s buckets (CloudWatch uses 60 s)
+  calibration_s: 300             # first half of the normal side: calibration ...
+  control_s: 300                 # ... second half: fault-free control (false-positive floor)
+  rolling_s: 300                 # rolling baseline scaled from 30 min to the 300 s available
+  rank_window_s: 300             # traces after the injection used for localisation
+  series: {latency: Duration, error: ErrorRate}   # RCAEval has no throttle metric
+  min_std: {Duration: 0.005, ErrorRate: 0.005}    # the AWS floors in RCAEval units (latency is in seconds)
+  entry_sli: frontend_latency    # SLI handed to every baseline (main.py uses the root cause's own latency)
+  baselines: [baro, circa, causalrca, tracerca]   # metric, causal, deep (DAG-GNN), TraceRCA-style
+
+stats:
+  alpha: 0.05
+  bootstrap: 2000
+  permutations: 10000
+
+expectations:                    # pre-committed
+  f1_concession_pp: 10           # rule arm within 10 pp of the strongest reproducible baseline
+  top3_concession_pp: 10         # rule arm concedes MORE than 10 pp in top-3
+  telemetry_reduction: 0.5       # rule policy cuts telemetry volume by at least half vs full
+
+budget:
+  daily_usd: 10

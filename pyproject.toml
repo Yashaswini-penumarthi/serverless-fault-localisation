@@ -1,0 +1,22 @@
+[project]
+name = "serverless-fault-localisation"
+version = "0.2.0"
+description = "Rule-based fault detection (CloudWatch) and localisation (X-Ray) for an AWS serverless order service against RCAEval baselines with monitoring overhead (MSc Cloud Computing, NCI)"
+requires-python = ">=3.11"
+authors = [{ name = "Yashaswini Penumarthi", email = "x24262404@student.ncirl.ie" }]
+
+[tool.pytest.ini_options]
+testpaths = ["test_suite"]
+pythonpath = [".", "lambdas/layer"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["faultlab", "detector", "eval", "baseline_runner", "injector", "traffic", "tools", "sim"]

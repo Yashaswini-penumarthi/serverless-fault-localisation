@@ -1,0 +1,21 @@
+# List prices for eu-west-1 (EU Ireland) from the AWS Price List API offer files
+# (https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/<service>/current/eu-west-1/index.json),
+# fetched 2026-09-11. publicationDate of each offer file:
+#   AWSXRay           2026-09-11T12:46:22Z   EUW1-XRay-TracesStored, EUW1-XRay-TracesAccessed
+#   AmazonCloudWatch  2026-09-11T13:44:05Z   EU-DataProcessing-Bytes, EU-TimedStorage-ByteHrs, EU-CW:GMD-Metrics
+#   AmazonApiGateway  2026-09-11T12:44:08Z   EU-ApiGatewayRequest (first 333 M / month)
+#   AWSLambda         2026-09-11T12:46:01Z   EU-Lambda-GB-Second-ARM (tier 1), EU-Request-ARM
+#   AmazonDynamoDB    2026-09-11T12:44:22Z   on-demand write / read request units
+# The free tier is ignored on purpose. Used by eval/telemetry_cost.py and tools/cost_estimator.py.
+region: eu-west-1
+currency: USD
+xray_traces_recorded: 0.000005        # $5.00 per million traces stored
+xray_traces_accessed: 0.0000005       # $0.50 per million traces retrieved or scanned
+logs_ingest_per_gb: 0.57
+logs_storage_per_gb_month: 0.03
+getmetricdata_per_metric: 0.00001     # $0.01 per 1,000 metrics requested
+api_rest_request: 0.0000035           # $3.50 per million
+lambda_arm_gb_second: 0.0000133334
+lambda_request: 0.0000002
+dynamodb_write_request_unit: 0.000000705
+dynamodb_read_request_unit: 0.0000001415

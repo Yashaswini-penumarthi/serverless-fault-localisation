@@ -1,0 +1,19 @@
+# Exact versions used for the runs and analysis in the final report (Python 3.12 / 3.13 on Linux x86_64 and macOS arm64)
+boto3==1.43.118
+botocore==1.43.118
+awscli==1.46.2
+numpy==2.5.4 ; python_version >= "3.13"
+numpy==2.2.4 ; python_version < "3.13"
+pandas==3.1.0 ; python_version >= "3.13"
+pandas==2.3.3 ; python_version < "3.13"
+pyarrow==26.0.0
+scipy==1.18.1 ; python_version >= "3.13"
+scipy==1.15.2 ; python_version < "3.13"
+statsmodels==0.15.0
+matplotlib==3.11.2 ; python_version >= "3.13"
+matplotlib==3.10.1 ; python_version < "3.13"
+PyYAML==6.0.3
+pytest==9.1.1
+moto==5.2.4
+aws-xray-sdk==2.15.0
+cfn-lint==1.58.0

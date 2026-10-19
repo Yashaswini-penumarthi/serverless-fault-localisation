@@ -1,0 +1,17 @@
+# Pinned versions and constants held the same across arms.
+region: eu-west-1
+iac: AWS SAM (template.yaml), cfn-lint in CI
+lambda:
+  runtime: python3.12
+  architecture: arm64
+  memory_mb: 256
+  timeout_s: 5
+  xray_sdk: "2.14.0"          # lambdas/layer/layer-deps.txt
+dynamodb:
+  capacity_mode: on_demand
+api: API Gateway HTTP API
+rcaeval:
+  package: "RCAEval==1.7.0"   # baseline_runner/requirements-rcaeval.txt, separate venv
+  data: Hugging Face phamquiluan/RCAEval (Parquet copy of the 735 cases)
+analysis:
+  python: "3.12"
