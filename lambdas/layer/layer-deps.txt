@@ -1,0 +1,2 @@
+# built into the layer by `sam build` (BuildMethod python3.12)
+aws-xray-sdk==2.14.0
