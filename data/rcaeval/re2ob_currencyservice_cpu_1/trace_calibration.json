@@ -1,0 +1,13 @@
+{
+  "percentile": 99,
+  "root_duration": 0.337943172455,
+  "self_time": {
+    "checkoutservice": 0.120642375946,
+    "currencyservice": 0.001090660095,
+    "emailservice": 0.000524356365,
+    "frontend": 0.072251470089,
+    "paymentservice": 0.000622515678,
+    "productcatalogservice": 5.2928925e-05,
+    "recommendationservice": 0.004815461636
+  }
+}
