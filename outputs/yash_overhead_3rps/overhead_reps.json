@@ -1,0 +1,55 @@
+{
+  "per_rep_reduction_policy_vs_full": [
+    0.7742596219475519,
+    0.6361809348003232
+  ],
+  "reduction_policy_vs_full": [
+    0.7052202783739376,
+    -0.17200775592351303,
+    1.5824483126713882
+  ],
+  "per_rep_reduction_off_vs_full": [
+    NaN
+  ],
+  "reduction_off_vs_full": [
+    NaN,
+    NaN,
+    NaN
+  ],
+  "expected_reduction": 0.5,
+  "run_level_latency_tests": [
+    {
+      "pair": "full vs policy",
+      "n_reps": 2,
+      "mean_median_a_ms": 502.06499999999994,
+      "mean_median_b_ms": 560.4825,
+      "mean_diff_ms": -58.41749999999999,
+      "p_paired_t": 0.4075636163554237,
+      "p_wilcoxon": 0.5,
+      "p_holm": 0.4075636163554237
+    }
+  ],
+  "latency_tests": [
+    {
+      "pair": "full vs policy",
+      "n_a": 1800,
+      "n_b": 1800,
+      "median_a": 509.795,
+      "median_b": 561.145,
+      "U": 1201308.5,
+      "p": 4.163867473291751e-41,
+      "rank_biserial": 0.2584515432098765,
+      "p_holm": 4.163867473291751e-41
+    }
+  ],
+  "latency_tests_without_first_30s": [
+    {
+      "pair": "full vs policy",
+      "median_a": 506.81,
+      "median_b": 560.49,
+      "p": 1.0007428320977588e-43,
+      "rank_biserial": 0.28135459533607676,
+      "p_holm": 1.0007428320977588e-43
+    }
+  ]
+}

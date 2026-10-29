@@ -1,0 +1,104 @@
+{
+  "rules": {
+    "window_min": 30,
+    "sigma": 3.0,
+    "percentile": 99,
+    "min_baseline_points": 10,
+    "min_std": {
+      "ErrorRate": 0.005,
+      "ThrottleRate": 0.005,
+      "Duration": 5.0
+    }
+  },
+  "series": {
+    "inventory/Duration": {
+      "n": 57,
+      "mean": 22.958735583902,
+      "std": 15.704779062872,
+      "p": 91.883044444445,
+      "threshold": 91.883044444445
+    },
+    "inventory/ErrorRate": {
+      "n": 60,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "inventory/ThrottleRate": {
+      "n": 60,
+      "mean": 0.022990196078,
+      "std": 0.087596984934,
+      "p": 0.398597285068,
+      "threshold": 0.398597285068
+    },
+    "notifications/Duration": {
+      "n": 57,
+      "mean": 9.945699134695,
+      "std": 5.576951642065,
+      "p": 30.831664,
+      "threshold": 30.831664
+    },
+    "notifications/ErrorRate": {
+      "n": 60,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "notifications/ThrottleRate": {
+      "n": 60,
+      "mean": 0.003968253968,
+      "std": 0.0232652342,
+      "p": 0.110476190477,
+      "threshold": 0.110476190477
+    },
+    "orders_api/Duration": {
+      "n": 57,
+      "mean": 409.816370347439,
+      "std": 64.294332380362,
+      "p": 701.840467267267,
+      "threshold": 701.840467267267
+    },
+    "orders_api/ErrorRate": {
+      "n": 60,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "orders_api/ThrottleRate": {
+      "n": 60,
+      "mean": 0.052376729556,
+      "std": 0.184197182279,
+      "p": 0.799449562238,
+      "threshold": 0.799449562238
+    },
+    "payments/Duration": {
+      "n": 57,
+      "mean": 11.964687504597,
+      "std": 12.958226395458,
+      "p": 74.237433333333,
+      "threshold": 74.237433333333
+    },
+    "payments/ErrorRate": {
+      "n": 60,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "payments/ThrottleRate": {
+      "n": 60,
+      "mean": 0.00275,
+      "std": 0.016859966624,
+      "p": 0.07485,
+      "threshold": 0.07485
+    }
+  },
+  "calibration_utc": [
+    1792774836.186917,
+    1792778436.186917
+  ],
+  "sha256": "4a7a30edc5bc42d9d11df12837ffc537863282393bda517529f0605806f3c257"
+}

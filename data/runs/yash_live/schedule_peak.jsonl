@@ -1,0 +1,24 @@
+{"id": "peak-001", "load": "peak", "fault": "dependency_failure", "target": "inventory", "start": 1792787090.7906475, "end": 1792787150.7906475}
+{"id": "peak-002", "load": "peak", "fault": "throttling", "target": "payments", "start": 1792787330.7906475, "end": 1792787390.7906475, "reserved_concurrency": 0}
+{"id": "peak-003", "load": "peak", "fault": "dependency_failure", "target": "payments", "start": 1792787570.7906475, "end": 1792787630.7906475}
+{"id": "peak-004", "load": "peak", "fault": "timeout", "target": "inventory", "start": 1792787810.7906475, "end": 1792787870.7906475, "hold_ms": 1500}
+{"id": "peak-005", "load": "peak", "fault": "throttling", "target": "payments", "start": 1792788050.7906475, "end": 1792788110.7906475, "reserved_concurrency": 0}
+{"id": "peak-006", "load": "peak", "fault": "timeout", "target": "payments", "start": 1792788290.7906475, "end": 1792788350.7906475, "hold_ms": 1500}
+{"id": "peak-007", "load": "peak", "fault": "dependency_failure", "target": "notifications", "start": 1792788530.7906475, "end": 1792788590.7906475}
+{"id": "peak-008", "load": "peak", "fault": "throttling", "target": "inventory", "start": 1792788770.7906475, "end": 1792788830.7906475, "reserved_concurrency": 0}
+{"id": "peak-009", "load": "peak", "fault": "timeout", "target": "notifications", "start": 1792789010.7906475, "end": 1792789070.7906475, "hold_ms": 1500}
+{"id": "peak-010", "load": "peak", "fault": "dependency_failure", "target": "payments", "start": 1792789250.7906475, "end": 1792789310.7906475}
+{"id": "peak-011", "load": "peak", "fault": "timeout", "target": "inventory", "start": 1792789490.7906475, "end": 1792789550.7906475, "hold_ms": 1500}
+{"id": "peak-012", "load": "peak", "fault": "throttling", "target": "notifications", "start": 1792789730.7906475, "end": 1792789790.7906475, "reserved_concurrency": 0}
+{"id": "peak-013", "load": "peak", "fault": "elevated_latency", "target": "inventory", "start": 1792789970.7906475, "end": 1792790030.7906475, "latency_ms": 459}
+{"id": "peak-014", "load": "peak", "fault": "elevated_latency", "target": "payments", "start": 1792790210.7906475, "end": 1792790270.7906475, "latency_ms": 365}
+{"id": "peak-015", "load": "peak", "fault": "dependency_failure", "target": "inventory", "start": 1792790450.7906475, "end": 1792790510.7906475}
+{"id": "peak-016", "load": "peak", "fault": "throttling", "target": "notifications", "start": 1792790690.7906475, "end": 1792790750.7906475, "reserved_concurrency": 0}
+{"id": "peak-017", "load": "peak", "fault": "timeout", "target": "notifications", "start": 1792790930.7906475, "end": 1792790990.7906475, "hold_ms": 1500}
+{"id": "peak-018", "load": "peak", "fault": "timeout", "target": "payments", "start": 1792791170.7906475, "end": 1792791230.7906475, "hold_ms": 1500}
+{"id": "peak-019", "load": "peak", "fault": "dependency_failure", "target": "notifications", "start": 1792791410.7906475, "end": 1792791470.7906475}
+{"id": "peak-020", "load": "peak", "fault": "elevated_latency", "target": "notifications", "start": 1792791650.7906475, "end": 1792791710.7906475, "latency_ms": 786}
+{"id": "peak-021", "load": "peak", "fault": "elevated_latency", "target": "inventory", "start": 1792791890.7906475, "end": 1792791950.7906475, "latency_ms": 756}
+{"id": "peak-022", "load": "peak", "fault": "elevated_latency", "target": "payments", "start": 1792792130.7906475, "end": 1792792190.7906475, "latency_ms": 617}
+{"id": "peak-023", "load": "peak", "fault": "elevated_latency", "target": "notifications", "start": 1792792370.7906475, "end": 1792792430.7906475, "latency_ms": 658}
+{"id": "peak-024", "load": "peak", "fault": "throttling", "target": "inventory", "start": 1792792610.7906475, "end": 1792792670.7906475, "reserved_concurrency": 0}

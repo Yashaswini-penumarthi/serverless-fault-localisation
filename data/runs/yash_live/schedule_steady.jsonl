@@ -1,0 +1,24 @@
+{"id": "steady-001", "load": "steady", "fault": "elevated_latency", "target": "inventory", "start": 1792779695.9607415, "end": 1792779755.9607415, "latency_ms": 593}
+{"id": "steady-002", "load": "steady", "fault": "dependency_failure", "target": "notifications", "start": 1792779935.9607415, "end": 1792779995.9607415}
+{"id": "steady-003", "load": "steady", "fault": "timeout", "target": "inventory", "start": 1792780175.9607415, "end": 1792780235.9607415, "hold_ms": 1500}
+{"id": "steady-004", "load": "steady", "fault": "elevated_latency", "target": "payments", "start": 1792780415.9607415, "end": 1792780475.9607415, "latency_ms": 422}
+{"id": "steady-005", "load": "steady", "fault": "throttling", "target": "notifications", "start": 1792780655.9607415, "end": 1792780715.9607415, "reserved_concurrency": 0}
+{"id": "steady-006", "load": "steady", "fault": "dependency_failure", "target": "notifications", "start": 1792780895.9607415, "end": 1792780955.9607415}
+{"id": "steady-007", "load": "steady", "fault": "dependency_failure", "target": "inventory", "start": 1792781135.9607415, "end": 1792781195.9607415}
+{"id": "steady-008", "load": "steady", "fault": "elevated_latency", "target": "inventory", "start": 1792781375.9607415, "end": 1792781435.9607415, "latency_ms": 337}
+{"id": "steady-009", "load": "steady", "fault": "throttling", "target": "payments", "start": 1792781615.9607415, "end": 1792781675.9607415, "reserved_concurrency": 0}
+{"id": "steady-010", "load": "steady", "fault": "elevated_latency", "target": "notifications", "start": 1792781855.9607415, "end": 1792781915.9607415, "latency_ms": 392}
+{"id": "steady-011", "load": "steady", "fault": "elevated_latency", "target": "payments", "start": 1792782095.9607415, "end": 1792782155.9607415, "latency_ms": 655}
+{"id": "steady-012", "load": "steady", "fault": "elevated_latency", "target": "notifications", "start": 1792782335.9607415, "end": 1792782395.9607415, "latency_ms": 325}
+{"id": "steady-013", "load": "steady", "fault": "timeout", "target": "payments", "start": 1792782575.9607415, "end": 1792782635.9607415, "hold_ms": 1500}
+{"id": "steady-014", "load": "steady", "fault": "timeout", "target": "payments", "start": 1792782815.9607415, "end": 1792782875.9607415, "hold_ms": 1500}
+{"id": "steady-015", "load": "steady", "fault": "dependency_failure", "target": "inventory", "start": 1792783055.9607415, "end": 1792783115.9607415}
+{"id": "steady-016", "load": "steady", "fault": "throttling", "target": "inventory", "start": 1792783295.9607415, "end": 1792783355.9607415, "reserved_concurrency": 0}
+{"id": "steady-017", "load": "steady", "fault": "dependency_failure", "target": "payments", "start": 1792783535.9607415, "end": 1792783595.9607415}
+{"id": "steady-018", "load": "steady", "fault": "timeout", "target": "inventory", "start": 1792783775.9607415, "end": 1792783835.9607415, "hold_ms": 1500}
+{"id": "steady-019", "load": "steady", "fault": "throttling", "target": "notifications", "start": 1792784015.9607415, "end": 1792784075.9607415, "reserved_concurrency": 0}
+{"id": "steady-020", "load": "steady", "fault": "timeout", "target": "notifications", "start": 1792784255.9607415, "end": 1792784315.9607415, "hold_ms": 1500}
+{"id": "steady-021", "load": "steady", "fault": "timeout", "target": "notifications", "start": 1792784495.9607415, "end": 1792784555.9607415, "hold_ms": 1500}
+{"id": "steady-022", "load": "steady", "fault": "throttling", "target": "payments", "start": 1792784735.9607415, "end": 1792784795.9607415, "reserved_concurrency": 0}
+{"id": "steady-023", "load": "steady", "fault": "throttling", "target": "inventory", "start": 1792784975.9607415, "end": 1792785035.9607415, "reserved_concurrency": 0}
+{"id": "steady-024", "load": "steady", "fault": "dependency_failure", "target": "payments", "start": 1792785215.9607415, "end": 1792785275.9607415}

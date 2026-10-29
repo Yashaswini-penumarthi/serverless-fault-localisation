@@ -1,0 +1,104 @@
+{
+  "rules": {
+    "window_min": 30,
+    "sigma": 3.0,
+    "percentile": 99,
+    "min_baseline_points": 10,
+    "min_std": {
+      "ErrorRate": 0.005,
+      "ThrottleRate": 0.005,
+      "Duration": 5.0
+    }
+  },
+  "series": {
+    "inventory/Duration": {
+      "n": 360,
+      "mean": 25.567169444444446,
+      "std": 1.9998325226980673,
+      "p": 29.469380000000008,
+      "threshold": 30.567169444444446
+    },
+    "inventory/ErrorRate": {
+      "n": 360,
+      "mean": 0.00106445602014936,
+      "std": 0.000729609267326005,
+      "p": 0.0029489829664305967,
+      "threshold": 0.00606445602014936
+    },
+    "inventory/ThrottleRate": {
+      "n": 360,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "notifications/Duration": {
+      "n": 360,
+      "mean": 10.233819444444444,
+      "std": 0.8114116713829762,
+      "p": 11.707460000000001,
+      "threshold": 15.233819444444444
+    },
+    "notifications/ErrorRate": {
+      "n": 360,
+      "mean": 0.00109437133091252,
+      "std": 0.000705556289048024,
+      "p": 0.0028890396620415864,
+      "threshold": 0.00609437133091252
+    },
+    "notifications/ThrottleRate": {
+      "n": 360,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "orders_api/Duration": {
+      "n": 360,
+      "mean": 61.50505,
+      "std": 3.692580693196293,
+      "p": 70.75415000000001,
+      "threshold": 70.75415000000001
+    },
+    "orders_api/ErrorRate": {
+      "n": 360,
+      "mean": 0.001054019386231378,
+      "std": 0.0007588677419056796,
+      "p": 0.003024715345099639,
+      "threshold": 0.006054019386231378
+    },
+    "orders_api/ThrottleRate": {
+      "n": 360,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    },
+    "payments/Duration": {
+      "n": 360,
+      "mean": 20.579177777777776,
+      "std": 1.4298891990326972,
+      "p": 23.701880000000003,
+      "threshold": 25.579177777777776
+    },
+    "payments/ErrorRate": {
+      "n": 360,
+      "mean": 0.0009999231817409578,
+      "std": 0.0007230460182857351,
+      "p": 0.0028426342372435682,
+      "threshold": 0.005999923181740958
+    },
+    "payments/ThrottleRate": {
+      "n": 360,
+      "mean": 0.0,
+      "std": 0.0,
+      "p": 0.0,
+      "threshold": 0.005
+    }
+  },
+  "calibration_utc": [
+    1767225600.0,
+    1767247200.0
+  ],
+  "sha256": "6f8b146cbca82ee358bd560665030e4df9f045125fdf3c415480b00a0007fad5"
+}

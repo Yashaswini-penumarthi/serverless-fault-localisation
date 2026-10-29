@@ -1,0 +1,13 @@
+{
+  "share_of_cases_with_modal_ranking": {
+    "baro": 0.022222222222222223,
+    "causalrca": 1.0,
+    "circa": 0.044444444444444446,
+    "hybrid": 0.022222222222222223,
+    "rules": 0.06666666666666667,
+    "tracerca": 0.1111111111111111
+  },
+  "flagged": [
+    "causalrca"
+  ]
+}

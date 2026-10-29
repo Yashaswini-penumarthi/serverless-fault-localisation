@@ -1,0 +1,13 @@
+{
+  "tp": 90,
+  "fp": 204,
+  "fn": 0,
+  "precision": 0.30612244897959184,
+  "recall": 1.0,
+  "f1": 0.46874999999999994,
+  "cases_with_control_fp": 83,
+  "cases": 90,
+  "delay_n": 90,
+  "delay_median_s": 20.5,
+  "delay_p95_s": 35.55
+}

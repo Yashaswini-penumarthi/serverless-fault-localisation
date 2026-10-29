@@ -1,0 +1,25 @@
+injection_id,fault,target,detected,detected_at,delay_s,load,rank
+steady-001,elevated_latency,inventory,True,2026-10-23 18:22:00+00:00,24.03925848,steady,1.0
+steady-002,dependency_failure,notifications,True,2026-10-23 18:26:00+00:00,24.03925848,steady,1.0
+steady-003,timeout,inventory,True,2026-10-23 18:30:00+00:00,24.03925848,steady,1.0
+steady-004,elevated_latency,payments,True,2026-10-23 18:34:00+00:00,24.03925848,steady,1.0
+steady-005,throttling,notifications,False,,,steady,
+steady-006,dependency_failure,notifications,True,2026-10-23 18:42:00+00:00,24.03925848,steady,2.0
+steady-007,dependency_failure,inventory,True,2026-10-23 18:46:00+00:00,24.03925848,steady,1.0
+steady-008,elevated_latency,inventory,True,2026-10-23 18:50:00+00:00,24.03925848,steady,1.0
+steady-009,throttling,payments,False,,,steady,
+steady-010,elevated_latency,notifications,True,2026-10-23 18:58:00+00:00,24.03925848,steady,2.0
+steady-011,elevated_latency,payments,True,2026-10-23 19:02:00+00:00,24.03925848,steady,1.0
+steady-012,elevated_latency,notifications,True,2026-10-23 19:06:00+00:00,24.03925848,steady,3.0
+steady-013,timeout,payments,True,2026-10-23 19:10:00+00:00,24.03925848,steady,1.0
+steady-014,timeout,payments,True,2026-10-23 19:16:00+00:00,144.03925848,steady,2.0
+steady-015,dependency_failure,inventory,True,2026-10-23 19:18:00+00:00,24.03925848,steady,1.0
+steady-016,throttling,inventory,False,,,steady,
+steady-017,dependency_failure,payments,True,2026-10-23 19:26:00+00:00,24.03925848,steady,1.0
+steady-018,timeout,inventory,True,2026-10-23 19:30:00+00:00,24.03925848,steady,1.0
+steady-019,throttling,notifications,True,2026-10-23 19:34:00+00:00,24.03925848,steady,3.0
+steady-020,timeout,notifications,True,2026-10-23 19:38:00+00:00,24.03925848,steady,4.0
+steady-021,timeout,notifications,True,2026-10-23 19:42:00+00:00,24.03925848,steady,4.0
+steady-022,throttling,payments,False,,,steady,
+steady-023,throttling,inventory,True,2026-10-23 19:50:00+00:00,24.03925848,steady,2.0
+steady-024,dependency_failure,payments,True,2026-10-23 19:54:00+00:00,24.03925848,steady,1.0

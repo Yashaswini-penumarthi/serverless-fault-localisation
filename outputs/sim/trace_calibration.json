@@ -1,0 +1,10 @@
+{
+  "percentile": 99,
+  "self_time": {
+    "inventory": 0.028552367687225348,
+    "notifications": 0.009999990463256836,
+    "orders_api": 0.07218685865402223,
+    "payments": 0.02277812719345093
+  },
+  "root_duration": 0.11807097911834719
+}

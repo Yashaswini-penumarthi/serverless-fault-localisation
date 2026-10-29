@@ -1,0 +1,9 @@
+{
+  "expectation": "rule arm concedes > 10 pp in top-3",
+  "strongest_baseline": "circa",
+  "cases": 90,
+  "gap": 0.2666666666666666,
+  "ci_lo": 0.15555555555555556,
+  "ci_hi": 0.3777777777777779,
+  "decision": "supported"
+}

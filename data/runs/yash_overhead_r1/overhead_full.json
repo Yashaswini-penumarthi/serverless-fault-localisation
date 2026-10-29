@@ -1,0 +1,16 @@
+{
+  "requests": 300,
+  "log_bytes": 647264.0,
+  "traces_recorded": 300,
+  "trace_bytes": 2657087.9999999995,
+  "bytes_per_1000_requests": 11014506.666666664,
+  "latency_median_ms": 614.4749999999999,
+  "latency_p95_ms": 720.437,
+  "error_share": 0.0,
+  "policy": {
+    "mode": "Active",
+    "reservoir_per_s": 1000,
+    "fixed_rate": 1.0,
+    "log_level": "INFO"
+  }
+}
