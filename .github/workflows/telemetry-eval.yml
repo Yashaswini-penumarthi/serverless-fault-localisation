@@ -1,0 +1,92 @@
+name: Serverless Telemetry & Fault Localisation Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  reproducibility-and-aws-audit:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Python 3.12 runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: pinned-packages.txt
+
+      - name: Install pinned Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pinned-packages.txt
+
+      - name: Execute offline verification suite (79 tests + 90 RE2-OB cases + table rebuild)
+        run: |
+          PY="$(which python)" bash check_reproducibility.sh
+
+      - name: Package ARM64 Lambda functions and shared observability layer
+        run: |
+          python tools/bundle_lambdas.py
+
+      - name: Set up Terraform 1.9.8
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+          terraform_wrapper: false
+
+      - name: Check Terraform formatting and validate infrastructure schema
+        run: |
+          terraform -chdir=infra fmt -check
+          terraform -chdir=infra init -backend=false
+          terraform -chdir=infra validate
+
+      - name: Audit live AWS serverless stacks (faultlab and faultlab-oh) in eu-west-1
+        if: env.AWS_ACCESS_KEY_ID != '' && env.AWS_SECRET_ACCESS_KEY != ''
+        run: |
+          python - << 'PY'
+          import os, boto3
+
+          region = os.environ.get("AWS_DEFAULT_REGION") or "eu-west-1"
+          sts = boto3.client("sts", region_name=region)
+          ident = sts.get_caller_identity()
+          assert ident["Account"] == "965984382147", f"Unexpected AWS account: {ident['Account']}"
+          print(f"Verified AWS account {ident['Account']} ({ident['Arn']}) in {region}")
+
+          lam = boto3.client("lambda", region_name=region)
+          expected_fns = [
+              "faultlab-orders-api", "faultlab-inventory", "faultlab-payments", "faultlab-notifications",
+              "faultlab-oh-orders-api", "faultlab-oh-inventory", "faultlab-oh-payments", "faultlab-oh-notifications",
+          ]
+          for fn in expected_fns:
+              cfg = lam.get_function_configuration(FunctionName=fn)
+              assert cfg["Runtime"] == "python3.12", f"{fn} runtime {cfg['Runtime']}"
+              assert "arm64" in cfg.get("Architectures", []), f"{fn} arch {cfg.get('Architectures')}"
+              print(f"Verified Lambda {fn}: runtime={cfg['Runtime']}, arch={cfg['Architectures'][0]}, tracing={cfg['TracingConfig']['Mode']}")
+
+          ddb = boto3.client("dynamodb", region_name=region)
+          for tbl_name in ["faultlab-orders", "faultlab-oh-orders"]:
+              tbl = ddb.describe_table(TableName=tbl_name)["Table"]
+              assert tbl["TableStatus"] == "ACTIVE", f"{tbl_name} status {tbl['TableStatus']}"
+              print(f"Verified DynamoDB table {tbl_name}: status={tbl['TableStatus']}")
+
+          ssm = boto3.client("ssm", region_name=region)
+          for param_name in ["/faultlab/fault", "/faultlab-oh/fault"]:
+              p = ssm.get_parameter(Name=param_name)["Parameter"]
+              print(f"Verified SSM fault switch {p['Name']} (version {p['Version']})")
+
+          xray = boto3.client("xray", region_name=region)
+          rules = {r["SamplingRule"]["RuleName"] for r in xray.get_sampling_rules()["SamplingRuleRecords"]}
+          for rname in ["faultlab-sampling", "faultlab-oh-sampling"]:
+              assert rname in rules, f"Missing X-Ray sampling rule {rname}"
+              print(f"Verified X-Ray sampling rule {rname}")
+          PY
